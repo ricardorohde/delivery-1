@@ -1,10 +1,15 @@
 <section class="banner">
 	<div class="overlay"></div>
-	<div style="background-image: url('uploads/banner.jpg')" class="banner-single">
+	<?php
+		$slides = MySql::selectAll('tb_site.slides', 'ORDER BY order_id ASC');
+		foreach ($slides as $key => $value) {
+	?>
+	<div style="background-image: url('uploads/<?php echo $value['imagem']; ?>')" class="banner-single">
 		<div class="center">
 			<div class="info">
-				<h2>Pedidos online</h2>
-				<p>Fazer pedidos online nunca foi tão fácil como agora!</p>
+				<!-- <h2>Pedidos online</h2>
+				<p>Fazer pedidos online nunca foi tão fácil como agora!</p> -->
+				<?php echo $value['info']; ?>
 			</div>
 		</div>
 	</div>

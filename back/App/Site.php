@@ -11,7 +11,7 @@ class Site {
 		unset($_SESSION['login']);
 		if(!empty($redirect))
 			self::redirect($redirect);
-
+		unset($_SESSION['cart']);
 	}
 	public static function generateSlug($str) {
 		$str = mb_strtolower($str);

@@ -10,10 +10,29 @@ if(!isset($_SESSION['cart']))
 
 <header>
 	<div class="center">
-		<div class="logo w50 left"><a style="text-decoration: none; color: white;" href="<?php echo INCLUDE_PATH; ?>">Delivery</a></div>
-		<nav class="desktop w50 left">
+		<div class="logo w30 left"><a style="text-decoration: none; color: white;" href="<?php echo INCLUDE_PATH; ?>">Delivery</a></div>
+		<nav class="desktop w70 left">
 			<ul>
 				<li><a href="<?php echo INCLUDE_PATH; ?>loja"><?php echo $STANDART_ICONS['search']; ?> Procurar</a></li>
+				<li><a class="pedidos" href="<?php echo INCLUDE_PATH; ?>pedidos">Pedidos(<?php echo @Store::getCartItems(); ?>)</a></li>
+				<?php
+					if(!isset($_SESSION['login'])) {
+				?>
+				<li><a href="<?php echo INCLUDE_PATH; ?>login">Login</a></li>
+			<?php } elseif($_SESSION['login']['cargo'] >= 2) { ?>
+				<li><a href="<?php echo INCLUDE_PATH; ?>painel">Painel</a></li>
+			<?php } ?>
+			<?php
+				if(isset($_SESSION['login'])) {
+			?>
+				<li><a href="<?php echo INCLUDE_PATH; ?>andamento">Andamento(0)</a></li>
+		<?php } ?>
+			</ul>
+		</nav>
+		<nav class="mobile w50 left">
+			<i class="fas fa-bars"></i>
+			<ul>
+				<li><a href="<?php echo INCLUDE_PATH; ?>loja">Procurar</a></li>
 				<li><a class="pedidos" href="<?php echo INCLUDE_PATH; ?>pedidos">Pedidos(<?php echo @Store::getCartItems(); ?>)</a></li>
 				<?php
 					if(!isset($_SESSION['login'])) {
@@ -57,6 +76,11 @@ if(!isset($_SESSION['cart']))
 <footer>
 	<p>Copyright Todos os direitos reservados</p>
 </footer>
+<script type="text/javascript">
+	$('nav.mobile i').click(function() {
+		$('nav.mobile ul').slideToggle();
+	})
+</script>
 <?php
 Hantix::end();
 ?>

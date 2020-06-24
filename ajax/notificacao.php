@@ -31,6 +31,7 @@
 		$endereco = "$cidade - $estado; $cep, $rua, $numero, $complemento";
 		if($status == 3) {
 			foreach ($items as $key => $item) {
+				$quantidade = $item->quantity;
 				$prato = MySql::connect()->prepare("SELECT * FROM `tb_admin.pratos` WHERE id = ?");
 				$prato->execute(array($item->id));
 				$restaurante_id = $prato->fetch()['restaurante'];
@@ -45,16 +46,17 @@
 				$mensagem.="<h3>Seu pedido foi aprovado e está sendo preparado</h3>\n";
 				$mensagem.="Informações sobre seu pedido:";
 				$mensagem.="<p>Restaurante: ".$restaurante_do_pedido['nome']."</p>";
-				$mensagem.="<p>Preço: ".Site::toMoney($prato['preco'])."</p>";
+				$mensagem.="<p>Preço: ".Site::toMoney($prato['preco'] * $quantidade)."</p>";
 				$mensagem.="<p>Prato: ".$prato['nome']."</p>";
 				$mensagem.="<h2>Você será atualizado por email quanto ao status deste pedido, por isso fique atento!</h2>";
 				$email_para_usuario->setMessage('Seu pedido foi aprovado e está sendo preparado!', $mensagem);
+				$email_para_usuario->send();
 				$email_para_restaurante = new Email();
-				$email_para_usuario->addAddress($restaurante_do_pedido['email']);
+				$email_para_restaurante->addAddress($restaurante_do_pedido['email']);
 				$mensagem = "Olá ".$restaurante_do_pedido['nome']."! Você tem um novo pedido para ser preparado, verifique seu painel!\n";
 				$mensagem.='<a href="'.INCLUDE_PATH.'">Clique aqui</a>';
-				$email_para_usuario->setMessage('Você tem um novo pedido para ser preparado!', );
-				$email_para_usuario->send();
+				$email_para_restaurante->setMessage('Você tem um novo pedido para ser preparado!', $mensagem);
+				$email_para_restaurante->send();
 			}
 		}
 	}

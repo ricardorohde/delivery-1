@@ -87,7 +87,10 @@
 		}).done(function(data) {
 			// $('html,body').animate({'opacity':'1'},500);
 			// $('a').removeAttr('disabled');
-			location.href=data;
+			if(data=='')
+				location.href=include_path+'login';
+			else
+				location.href=data;
 		})
 	})
 </script>

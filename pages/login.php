@@ -43,6 +43,7 @@ use App\Site;
 			<input type="submit" name="acao" value="Login">
 		</div>
 	</form>
+	<p>Ainda não é registrado? <a href="<?php echo INCLUDE_PATH; ?>registrar">Registre-se</a> para fazer pedidos</p>
 </section>
 <?php
 	\Core\Hantix::end();

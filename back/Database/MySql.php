@@ -13,39 +13,47 @@ class MySql {
 		}
 
 	}
-	public static function selectAll($table) {
+	public static function find($table_where_select, $query = '', $execute_params = array()) {
 		$sql = self::connect();
-		$query = "SELECT * FROM `".$table.'`';
-		$sql = $sql->prepare($query);
-		$sql->execute();
+		$sql = $sql->prepare("SELECT * FROM `$table_where_select` $query");
+		$sql->execute($execute_params);
+		return $sql->fetch();
+	}
+	public static function selectAll($table_where_select, $query, $execute_params) {
+		$sql = self::connect();
+		$sql = $sql->prepare("SELECT * FROM `$table_where_select` $query");
+		$sql->execute($execute_params);
 		return $sql->fetchAll();
 	}
-	public static function select($table, $query, $params) {
+	public static function update($table_where_update, $query, $execute_params) {
 		$sql = self::connect();
-		$sql = $sql->prepare("SELECT * FROM `$table` $query");
-		$sql->execute($params);
-		return $sql->fetchAll();
+		$sql = $sql->prepare("UPDATE `$table_where_update` $query");
+		$sql->execute($execute_params);
 	}
-	public static function update($table, $query, $params) {
+	public static function insert($table_where_insert, array $execute_params) {
 		$sql = self::connect();
-		$sql = $sql->prepare("UPDATE `$table` $query");
-		$sql->execute($params);
-	}
-	public static function insert($table, array $params) {
-		$sql = self::connect();
-		$query = "INSERT INTO `$table` VALUES(null,";
-		$count = count($params) - 1;
-		for($i = 0; $i < $count; $i++) {
+		$query = "INSERT INTO `$table_where_insert` VALUES(null,";
+		$params_iterator = count($execute_params) - 1; /*This -1 is to prevent all parameters from being passed and a comma at the end, HAVING CONTROL OVER THE LAST CHARACTER. Example:
+		$params_iterator = 5;
+
+		the for goes through all the positions, putting commas at the end. If this happens, we will have a query like this:
+
+		-> "INSERT INTO `$table_where_insert` VALUES (null,?,?,?,?,?,) "
+
+		This would give an error, so we decrement the iterator to have control over the last parameter of the query
+
+		*/
+		for($i = 0; $i < $params_iterator; $i++) {
 			$query.='?,';
 		}
 		$query.='?)';
 		$sql = $sql->prepare($query);
-		$sql->execute($params);
+		$sql->execute($execute_params);
 	}
-	public static function delete($table, $query, $params) {
+	public static function delete($table_where_delete, $query, $execute_params) {
 		$sql = self::connect();
-		$sql = $sql->prepare("DELETE FROM `$table` $query");
-		$sql->execute($params);
+		$sql = $sql->prepare("DELETE FROM `$table_where_delete` $query");
+		$sql->execute($execute_params);
 	}
 }
 ?>

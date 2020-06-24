@@ -10,6 +10,18 @@
 			Site::alert('warning', 'Você não tem pedidos ativos');
 			die();
 		}
+		if(isset($_GET['confirmar'])) {
+			$id = (int)$_GET['confirmar'];
+			$prato_id = MySql::connect()->prepare("SELECT * FROM `tb_admin.pedidos` WHERE id = ?");
+			$prato_id->execute(array($id));
+			$prato_id = $prato_id->fetch()['prato'];
+			$sql = MySql::connect()->prepare("DELETE FROM `tb_admin.pedidos` WHERE id = ?");
+			$sql->execute(array($id));
+			$pedidos = MySql::connect()->prepare("SELECT * FROM `tb_admin.pedidos` WHERE usuario = ?");
+			$pedidos->execute(array($_SESSION['login']['id']));
+			$pedidos = $pedidos->fetchAll();
+			Site::alert('success', 'Obrigado por comprar conosco!');
+		}
 	?>
 	<table>
 		<thead>
