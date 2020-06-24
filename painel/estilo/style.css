@@ -188,3 +188,30 @@ header nav ul li.dropdown ul li {
 .box-content .pedido-single .btns a.excluir button {
 	background: #ef5350;
 }
+.box-content table {
+	width: 100%;
+}
+.box-content table.slides tbody td {
+	width: 18%;
+}
+.box-content table tbody td img {
+	width: 100%;
+}
+.box-content table tbody td h2 {
+	font-weight: lighter;
+	font-size: 18px;
+}
+.box-content table tbody td a button {
+	padding: 8px 20px;
+	color: white;
+	border:none;
+	cursor: pointer;
+	font-weight: lighter;
+	font-size: 18px;
+}
+.box-content table tbody td a.editar button {
+	background: #ffeb3b;
+}
+.box-content table tbody td a.deletar button {
+	background: #d32f2f;
+}

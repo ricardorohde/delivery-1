@@ -27,7 +27,7 @@
 				if($validar_numero->rowCount() >= 1)
 					throw new Exception("Número já existe!");
 				$sql = MySql::connect()->prepare("INSERT INTO `tb_admin.usuarios` VALUES(null,?,?,?,?,?,?,?)");
-				$sql->execute(array($usuario, $senha, $email, $numero, $nome, $imagem, 0));
+				$sql->execute(array($usuario, $senha, $email, $numero, $nome, $imagem, 1));
 				Site::redirect(INCLUDE_PATH.'login');
 			} catch(Exception $e) {
 				Site::alert('error', $e->getMessage());

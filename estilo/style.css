@@ -275,6 +275,9 @@ section.login form input[type=text] {
 	margin-top: 5px;
 	font-size: 18px;
 }
+section.login form input.pass {
+	width: calc(100% - 35px) !important;
+}
 section.login form input[type=password] {
 	width: calc(100% - 35px);
 	border-radius: 0;

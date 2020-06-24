@@ -19,7 +19,7 @@ class MySql {
 		$sql->execute($execute_params);
 		return $sql->fetch();
 	}
-	public static function selectAll($table_where_select, $query, $execute_params) {
+	public static function selectAll($table_where_select, $query = '', $execute_params = array()) {
 		$sql = self::connect();
 		$sql = $sql->prepare("SELECT * FROM `$table_where_select` $query");
 		$sql->execute($execute_params);

@@ -35,7 +35,7 @@ use App\Site;
 		</div>
 		<div class="form-group">
 			<label>Senha:</label>
-			<input class="left" type="password" name="senha">
+			<input class="left pass" type="password" name="senha">
 			<label class="left"><i class="fas fa-eye"></i></label>
 			<div class="clear"></div>
 		</div>
@@ -45,6 +45,20 @@ use App\Site;
 	</form>
 	<p>Ainda não é registrado? <a href="<?php echo INCLUDE_PATH; ?>registrar">Registre-se</a> para fazer pedidos</p>
 </section>
+<script type="text/javascript">
+	var show = false;
+	$('label i').click(function() {
+		if(show == false){
+			$('input[name=senha]').attr('type','text');
+			show = true;
+			console.log('oi');
+		}
+		else{
+			$('input[name=senha]').attr('type','password');
+			show = false;
+		}
+	})
+</script>
 <?php
 	\Core\Hantix::end();
 	die();

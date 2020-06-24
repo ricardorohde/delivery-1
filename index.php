@@ -6,6 +6,8 @@ use App\Store;
 Hantix::initialize('Delivery System', '', '', 'estilo/style.css');
 if(!isset($_SESSION['cart']))
 	$_SESSION['cart'] = array();
+if(isset($_GET['logout']))
+	Site::logout();
 ?>
 
 <header>
@@ -26,6 +28,7 @@ if(!isset($_SESSION['cart']))
 				if(isset($_SESSION['login'])) {
 			?>
 				<li><a href="<?php echo INCLUDE_PATH; ?>andamento">Andamento(0)</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>?logout"><i class="fas fa-sign-out"></i> Logout</a></li>
 		<?php } ?>
 			</ul>
 		</nav>

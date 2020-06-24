@@ -18,6 +18,7 @@ use App\Site;
 				<ul ref="cadastrar">
 					<li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-pratos">Pratos</a></li>
 					<li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-usuario">Usuário</a></li>
+					<li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-slide">Slide</a></li>
 					<!-- <li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-usuarios">Pedidos</a></li> -->
 				</ul>
 			</li>
@@ -25,6 +26,7 @@ use App\Site;
 				<ul ref="gerenciar">
 					<li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>gerenciar-pratos">Pratos</a></li>
 					<li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>gerenciar-pedidos">Pedidos</a></li>
+					<li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>gerenciar-slides">Slides</a></li>
 				</ul>
 			</li>
 			<li><a href="<?php echo INCLUDE_PATH_PAINEL; ?>?logout"><?php echo $STANDART_ICONS['out'] ?> Logout</a></li>

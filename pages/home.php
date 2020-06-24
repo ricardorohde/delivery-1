@@ -1,6 +1,7 @@
 <section class="banner">
 	<div class="overlay"></div>
 	<?php
+	use Database\MySql;
 		$slides = MySql::selectAll('tb_site.slides', 'ORDER BY order_id ASC');
 		foreach ($slides as $key => $value) {
 	?>
@@ -13,6 +14,7 @@
 			</div>
 		</div>
 	</div>
+<?php } ?>
 </section>
 <section class="descricao">
 	<i class="fas fa-utensils"></i>
