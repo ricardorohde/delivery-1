@@ -1,0 +1,190 @@
+header {
+	background: rgba(240,240,240,0.7);
+	/*padding: 15px;*/
+}
+header .logo {
+	text-align: center;
+	font-size: 35px;
+	color: #4b4b4b;
+	font-weight: lighter;
+	letter-spacing: 2px;
+	padding: 15px;
+}
+.logo a {
+	text-decoration: none;
+	color: #4b4b4b;
+}
+header nav ul {
+	list-style-type: none;
+}
+header nav ul li {
+	padding: 25px 15px;
+	/*color: #4b4b4b;*/
+	font-size: 20px;
+	font-weight: lighter;
+	display: inline-block;
+	transition: 0.25s;
+}
+header nav ul li a {
+	text-decoration: none;
+	color: #4b4b4b;
+}
+header nav ul li:hover {
+	background: rgba(220,220,220,0.8);
+}
+header nav ul li.dropdown ul {
+	display: none;
+	position: absolute;
+	border-radius: 15px;
+	margin-top: 20px;
+	background: rgba(240,240,240,1);
+	z-index: 999 !important;
+}
+header nav ul li.dropdown ul li {
+	display: block;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+.box-content {
+	padding: 30px;
+}
+
+.box-content .title {
+	font-size: 30px;
+	font-weight: lighter;
+	color: #4b4b4b;
+	margin: 15px 0;
+}
+.box-content .box-single {
+	background: rgba(240,240,240, 0.6);
+	padding: 15px;
+	border-radius: 15px;
+	margin-top: 35px;
+}
+.box-single h2 {
+	text-align: center;
+	font-size: 35px;
+	color: #9ccc65;
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	border-top: 3px solid #9ccc65;
+	padding: 5px 5px;
+	font-weight: lighter;
+	transform: translateX(-50%);
+	margin:20px 0;
+}
+.box-content table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+.box-content thead tr {
+	color: white;
+	background-color: #039be5;
+	color: white;
+}
+.box-content thead th {
+	padding: 5px;
+	font-weight: lighter;
+	font-size: 18px;
+}
+.box-content tbody tr {
+	border: 1px solid #ccc;
+	background: white;
+}
+.box-content tbody td {
+	padding: 15px;
+	color: #333;
+	font-weight: lighter;
+}
+.box-content form {
+	width: 80%;
+	padding: 30px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.box-content form input[type=text] {
+	width: 100%;
+	margin-top: 5px;
+	color: #444;
+	font-size: 16px;
+	padding: 8px;
+}
+.box-content form textarea {
+	width: 100%;
+	resize: vertical;
+	/*border-radius: 10px;*/
+	padding: 8px;
+	height: 250px;
+
+}
+.box-content .form-group {
+	margin-top: 35px;
+}
+.box-content form select {
+	width: 100%;
+	padding: 8px;
+	font-size: 16px;
+	color: #4b4b4b;
+	background: transparent;
+	margin-top: 5px;
+}
+.box-content .title {
+	text-align: center;
+}
+.box-content form input[type=submit] {
+	background: #9ccc65;
+	color: white;
+	font-size: 18px;
+	font-weight: lighter;
+	border:none;
+	cursor: pointer;
+	padding: 8px 30px;
+}
+.box-content .pedido-single {
+	padding: 20px;
+}
+.box-content .pedido-single .wrapper {
+	border-radius: 25px;
+	border:1px solid #ccc;
+	padding: 20px;
+}
+.box-content .pedido-single h2 {
+	text-align: center;
+	color: #525252;
+	font-size: 25px;
+	font-weight: normal;
+}
+.box-content .pedido-single .info {
+	margin-top: 30px;
+	text-align: center;
+}
+.box-content .pedido-single .btns {
+	margin-top: 40px;
+	position: relative;
+	padding: 15px;
+	text-align: center;
+}
+.box-content .pedido-single .info p {
+	color: #525252;
+	font-size: 18px;
+	font-weight: lighter;
+	margin-top: 25px;
+}
+.box-content .pedido-single .btns a button {
+	padding: 8px 25px;
+	font-size: 18px;
+	font-weight: lighter;
+	color: white;
+	border:none;
+	cursor: pointer;
+	margin-top: 25px;
+}
+.box-content .pedido-single .btns a.atualizar button {
+	background: #8bc34a;
+}
+.box-content .pedido-single .btns a.excluir button {
+	background: #ef5350;
+}

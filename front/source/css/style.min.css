@@ -1,0 +1,54 @@
+.form-group {
+	margin-top: 15px;
+	width: 100%;
+}
+form.standart input[type=text],[type=password] {
+	width: 100%;
+	padding: 8px;
+	/*border:1px solid #ccc;*/
+}
+form.standart textarea {
+	width: 100%;
+	resize: vertical;
+	height: 250px;
+	padding: 8px;
+	border:1px solid #ccc;
+}
+form.standart [type=submit] {
+	padding: 8px 15px;
+	font-size: 18px;
+	font-weight: lighter;
+	color: white;
+	background: transparent;
+	border:none;
+	background: #7cb342;
+	cursor: pointer;
+}
+form.standart select {
+	padding: 8px;
+	font-size: 18px;
+	color: #525252;
+	border:1px solid #ccc;
+	width: 100%;
+}
+form.standart label {
+	
+}
+.alert {
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	font-weight: lighter;
+}
+.success{
+	background: #9ccc65;
+
+}
+.error {
+	background: #ef5350;
+}
+.warning {
+	background: #ffeb3b;
+}
