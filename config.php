@@ -35,8 +35,8 @@ define('SMS_NUMBER', '');
 
 //PayPal settings
 
-define('PAYPAL_KEY', 'ASMyxbLnqabpnXu6P5MY-k1qlKz0D0VIoexuYZFujcxP0zf5icdXxUpl1sO9Bds3JrXX5JMg0bhrLbfG');
-define('PAYPAL_SECRET', 'EFkoDC1UpaNKrSJhE2uAbPvo_udiHjQKUN8_pBQgrYgzpOzl4b8vvI_YIkoDOh1ZSjhO7OEcdKoW__fa');
+define('PAYPAL_KEY', '');
+define('PAYPAL_SECRET', '');
 define('PAYPAL_CURRENCY', 'BRL');
 define('PAYPAL_TITLE', 'Delivery System');
 
@@ -44,8 +44,8 @@ define('PAYPAL_TITLE', 'Delivery System');
 
 //PagSeguro Settings
 
-define('PAGSEGURO_EMAIL', 'matheusmaceio2013@gmail.com');
-define('PAGSEGURO_TOKEN', '5F1C042B876B4942B9DCBDB3AFA77DD5');
+define('PAGSEGURO_EMAIL', '');
+define('PAGSEGURO_TOKEN', '');
 define('PAGSEGURO_CURRENCY', 'BRL');
 
 //####################################################
@@ -53,12 +53,12 @@ define('PAGSEGURO_CURRENCY', 'BRL');
 //Email settings
 
 define('EMAIL_HOST', 'smtp.gmail.com');
-define('EMAIL_USER', 'contato.matheusacioli@gmail.com');
-define('EMAIL_PASS', 'FarlanderS1552');
+define('EMAIL_USER', '');
+define('EMAIL_PASS', '');
 define('EMAIL_SECURE', 'tls');
 define('EMAIL_PORT', 587);
 define('EMAIL_AUTHOR', 'Delivery System');
-define('EMAIL_REPLY', 'matheusmaceio2013@gmail.com');
+define('EMAIL_REPLY', '');
 
 //####################################################
 
