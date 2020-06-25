@@ -27,7 +27,7 @@ if(isset($_GET['logout']))
 			<?php
 				if(isset($_SESSION['login'])) {
 			?>
-				<li><a href="<?php echo INCLUDE_PATH; ?>andamento">Andamento(0)</a></li>
+				<li><a href="<?php echo INCLUDE_PATH; ?>andamento">Andamento(<?php echo Site::getAndamento(); ?>)</a></li>
 				<li><a href="<?php echo INCLUDE_PATH; ?>?logout"><i class="fas fa-sign-out"></i> Logout</a></li>
 		<?php } ?>
 			</ul>

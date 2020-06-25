@@ -34,6 +34,10 @@ section.banner .banner-single {
 	background-size: cover;
 	background-repeat: no-repeat;
 	text-align: center;
+	display: none;
+}
+section.banner .banner-active {
+	display: block;
 }
 section.banner {
 	position: relative;
@@ -499,6 +503,7 @@ header nav.mobile {
 		font-size: 35px;
 		color: white;
 		margin-top: 15px;
+		cursor: pointer;
 	}
 	header nav.mobile ul {
 		list-style-type: none;
@@ -534,6 +539,12 @@ header nav.mobile {
 	section.banner .banner-single .info {
 		width: 100%;
 		padding: 10px;
+	}
+	section.login form {
+		width: 100% !important;
+	}
+	section.login p {
+		font-size: 18px;
 	}
 }
 @media screen and (max-width: 734px) {
@@ -592,6 +603,9 @@ header nav.mobile {
 	section.prato h2 {
 		font-size: 30px;
 	}
+	section.registrar form {
+		width: 100% !important;
+	}
 }
 section.registrar h2 {
 	text-align: center;
@@ -633,4 +647,15 @@ section.registrar input[type=submit] {
 	font-weight: lighter;
 	border:none;
 	padding: 8px 20px;
+}
+.paypal-aprovado h2 {
+	color: #9ccc65;
+	font-weight: normal;
+	font-size: 35px;
+	margin: 40px 0;
+}
+.paypal-aprovado p {
+	font-size: 25px;
+	font-weight: lighter;
+	color: #525252;
 }

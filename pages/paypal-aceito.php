@@ -3,6 +3,8 @@ use Database\MySql;
 use App\Site;
 use Facade\PayPalFacade;
 use Email\Email;
+use App\Store;
+Store::clearCart();
 $payment = new PayPalFacade();
 $payment = $payment->getPayment($_GET['PayerID'], $_GET['paymentId']);
 $payment = json_decode($payment);
@@ -33,6 +35,9 @@ if($status == 'approved') {
 		$restaurante_do_pedido = MySql::connect()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE id = ?");
 		$restaurante_do_pedido->execute(array($restaurante_id));
 		$restaurante_do_pedido = $restaurante_do_pedido->fetch();
+		$verifica = MySql::find('tb_admin.pedidos', 'WHERE usuario = ? AND prato = ?', array($usuario['id'], $prato['id']));
+		if(!empty($verifica))
+			die('Você já tem esse pedido em andamento');
 		$adicionar_pedido = MySql::connect()->prepare("INSERT INTO `tb_admin.pedidos` VALUES(null,?,?,?,?,?,?)");
 		$adicionar_pedido->execute(array($item->sku, $restaurante_id, $usuario['id'], $endereco,$quantidade, 0));
 		$email_para_usuario = new Email();
@@ -56,6 +61,9 @@ if($status == 'approved') {
 }
 if($status == 'approved') {
 ?>
-<h2>Aprovado!</h2>
+<div class="paypal-aprovado">
+	<h2>Pagamento Aprovado!</h2>
+	<p><a href="<?php echo INCLUDE_PATH; ?>andamento">Clique aqui</a> para acompanhar o andamento do seu pedido!</p>
+</div>
 <?php } else { ?>
 <?php } ?>

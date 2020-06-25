@@ -63,7 +63,7 @@
 					}
 				?></td>
 				<td><a class="confirmar" href="<?php echo INCLUDE_PATH; ?>andamento?confirmar=<?php echo $value['id']; ?>"><button>Confirmar Entrega</button></a></td>
-				<td><a href="<?php echo INCLUDE_PATH; ?>reclamacao?confirmar=<?php echo $value['id']; ?>"><button>Reclamar</button></a></td>
+				<td><a href="<?php echo INCLUDE_PATH; ?>reclamacao?id=<?php echo $value['id']; ?>"><button>Reclamar</button></a></td>
 			</tr>
 		<?php } ?>
 		</tbody>

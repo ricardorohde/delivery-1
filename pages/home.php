@@ -1,11 +1,11 @@
 <section class="banner">
-	<div class="overlay"></div>
 	<?php
 	use Database\MySql;
 		$slides = MySql::selectAll('tb_site.slides', 'ORDER BY order_id ASC');
 		foreach ($slides as $key => $value) {
 	?>
-	<div style="background-image: url('uploads/<?php echo $value['imagem']; ?>')" class="banner-single">
+	<div ref="<?php echo $key; ?>" style="background-image: url('uploads/<?php echo $value['imagem']; ?>')" class="banner-single">
+		<div class="overlay"></div>
 		<div class="center">
 			<div class="info">
 				<!-- <h2>Pedidos online</h2>
@@ -97,3 +97,18 @@
 	</div>
 	<div class="clear"></div>
 </section>
+<script type="text/javascript">
+	var bannerCount = $('.banner-single').length;
+	$('.banner-single[ref=0]').show();
+	var i = 0;
+	setInterval(function() {
+		var aux = i;
+		if(i < bannerCount - 1)
+			i++;
+		else
+			i = 0;
+		$('.banner-single[ref='+aux+']').fadeOut(200,function() {
+			$('.banner-single[ref='+i+']').fadeIn(200);			
+		});
+	}, 8000)
+</script>

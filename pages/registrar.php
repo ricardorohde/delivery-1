@@ -17,14 +17,14 @@
 					throw new Exception('Senhas não correspondem!');
 				if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 					throw new Exception('Email inválido!');
-				$validar_usuario = MySql::select('tb_admin.usuarios', 'WHERE usuario = ?', array($usuario));
-				if($validar_usuario->rowCount() >= 1)
+				$validar_usuario = MySql::find('tb_admin.usuarios', 'WHERE usuario = ?', array($usuario));
+				if(!empty($validar_usuario))
 					throw new Exception('Usuário já existe!');
-				$validar_email = MySql::select('tb_admin.usuarios', 'WHERE email = ?', array($email));
-				if($validar_email->rowCount() >= 1)
-					throw new Exception("Email já existe!");
-				$validar_numero = MySql::select('tb_admin.usuarios', 'WHERE numero = ?', array($numero));
-				if($validar_numero->rowCount() >= 1)
+				// $validar_email = MySql::select('tb_admin.usuarios', 'WHERE email = ?', array($email));
+				// if($validar_email->rowCount() >= 1)
+				// 	throw new Exception("Email já existe!");
+				$validar_numero = MySql::find('tb_admin.usuarios', 'WHERE numero = ?', array($numero));
+				if(!empty($validar_numero))
 					throw new Exception("Número já existe!");
 				$sql = MySql::connect()->prepare("INSERT INTO `tb_admin.usuarios` VALUES(null,?,?,?,?,?,?,?)");
 				$sql->execute(array($usuario, $senha, $email, $numero, $nome, $imagem, 1));

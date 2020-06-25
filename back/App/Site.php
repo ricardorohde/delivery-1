@@ -129,6 +129,11 @@ class Site {
 				break;
 		}
 	}
+	public static function getAndamento() {
+		$sql = MySql::connect()->prepare("SELECT * FROM `tb_admin.pedidos` WHERE usuario = ?");
+		$sql->execute(array($_SESSION['login']['id']));
+		return $sql->rowCount();
+	}
 }
 
 ?>

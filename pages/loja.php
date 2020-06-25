@@ -5,6 +5,13 @@ $pratos = MySql::connect()->prepare("SELECT * FROM `tb_admin.pratos`");
 $pratos->execute();
 $pratos = $pratos->fetchAll();
 
+if(isset($_POST['search'])) {
+	$search = $_POST['pesquisa'];
+	$pratos = MySql::connect()->prepare("SELECT * FROM `tb_admin.pratos` WHERE nome LIKE '%$search%' OR descricao = '%$search%'");
+	$pratos->execute();
+	$pratos = $pratos->fetchAll();
+}
+
 ?>
 <section class="loja">
 	<div class="center">
