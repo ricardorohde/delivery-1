@@ -27,9 +27,9 @@ define('BASE_DIR_API', BASE_DIR.'back/API/');
 
 //Twilio settings
 
-define('TWILO_SID', 'AC5d42fea89acb0372493c7becf47bbcc2');
-define('TWILO_TOKEN', '7cc6214a87f9a1e699eabb61201f6187');
-define('SMS_NUMBER', '+12028312191');
+define('TWILO_SID', '');
+define('TWILO_TOKEN', '');
+define('SMS_NUMBER', '');
 
 //####################################################
 
