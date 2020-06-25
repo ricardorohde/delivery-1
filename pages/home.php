@@ -1,11 +1,11 @@
 <section class="banner">
+	<div class="overlay"></div>
 	<?php
 	use Database\MySql;
 		$slides = MySql::selectAll('tb_site.slides', 'ORDER BY order_id ASC');
 		foreach ($slides as $key => $value) {
 	?>
 	<div ref="<?php echo $key; ?>" style="background-image: url('uploads/<?php echo $value['imagem']; ?>')" class="banner-single">
-		<div class="overlay"></div>
 		<div class="center">
 			<div class="info">
 				<!-- <h2>Pedidos online</h2>
