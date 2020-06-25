@@ -68,4 +68,35 @@
 		<?php } ?>
 		</tbody>
 	</table>
+	<div class="pedidos-container">
+		<?php
+			$pedidos = MySql::selectAll('tb_admin.pedidos', 'WHERE usuario = ?', array($_SESSION['login']['id']));
+			foreach ($pedidos as $key => $value) {
+				$prato = MySql::find('tb_admin.pratos', 'WHERE id = ?', array($value['prato']));
+				$restaurante = MySql::find('tb_admin.usuarios', 'WHERE id = ?', array($value['restaurante']));
+		?>
+		<div class="pedido-single">
+			<img src="<?php echo INCLUDE_PATH.'uploads/'.$prato['imagem']; ?>">
+			<div class="info">
+				<p><?php echo $restaurante['nome']; ?></p>
+				<p class="status"><?php switch ($value['status']) {
+						case 0:
+							echo 'Preparando';
+							break;
+						case 1:
+							echo 'Enviando';
+							break;
+						case 2:
+							echo 'Entregue';
+						default:
+							# code...
+							break;
+					} ?></p>
+				<a class="confirmar" href="<?php echo INCLUDE_PATH; ?>andamento?confirmar=<?php echo $value['id']; ?>"><button>Confirmar Entrega</button></a>
+				<a href="<?php echo INCLUDE_PATH; ?>reclamacao?id=<?php echo $value['id']; ?>"><button>Reclamar</button></a>
+
+			</div>
+		</div>
+	<?php } ?>
+	</div>
 </section>

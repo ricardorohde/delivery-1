@@ -546,6 +546,54 @@ header nav.mobile {
 	section.login p {
 		font-size: 18px;
 	}
+	section.andamento table {
+		display: none;
+	}
+	section.andamento .pedidos-container {
+		display: block !important;
+		padding: 15px;
+	}
+	section.andamento .pedido-single:nth-of-type(1) {
+		border:none;
+	}
+	section.andamento .pedido-single {
+		margin-top: 30px;
+		border-top: 1px solid #ccc;
+		padding: 15px;
+	}
+	section.andamento .pedido-single .info {
+		padding: 10px;
+		margin-top: 15px;
+		text-align: center;
+	}
+	section.andamento .pedido-single .info p {
+		font-size: 28px;
+		font-weight: lighter;
+		margin: 15px 0;
+	}
+	section.andamento .pedido-single .info p.status {
+		color: #9ccc65;
+	}
+	section.andamento .pedido-single .info a button {
+		padding: 8px 0;
+		width: 70%;
+		color: white;
+		font-weight: lighter;
+		cursor: pointer;
+		font-size: 18px;
+		border:none;
+		background: #d32f2f;
+		margin-top: 25px;
+	}
+	section.andamento > h2 {
+		font-size: 28px;
+	}
+	section.andamento .pedido-single a.confirmar button {
+		background: #9ccc65;
+	}
+	section.andamento .pedido-single img {
+		width: 100%;
+	}
 }
 @media screen and (max-width: 734px) {
 	section.descricao .desc-single {
@@ -658,4 +706,7 @@ section.registrar input[type=submit] {
 	font-size: 25px;
 	font-weight: lighter;
 	color: #525252;
+}
+section.andamento .pedidos-container {
+	display: none;
 }
